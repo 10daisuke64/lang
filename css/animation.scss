@@ -1,0 +1,60 @@
+.hero {
+  &::after {
+    animation-name: changeimg;
+    animation-duration: 12s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    @keyframes changeimg {
+      0% {
+        background-image: url(../img/hero/world.png);
+      }
+      40% {
+        background-image: url(../img/hero/world-blue.png);
+      }
+      80% {
+        background-image: url(../img/hero/world.png);
+      }
+      100% {
+        background-image: url(../img/hero/world.png);
+      }
+    }
+  }
+  &-vertical {
+    &::after {
+      animation-name: scroll;
+      animation-timing-function: linear;
+      animation-duration: 1s;
+      animation-iteration-count: infinite;
+      @keyframes scroll {
+        0% {
+          top: -20px;
+        }
+        100% {
+          top: 100%;
+        }
+      }
+    }
+  }
+}
+
+.list01 {
+  &-hol {
+    &::after {
+      animation-name: sideline;
+      animation-timing-function: linear;
+      animation-duration: 4s;
+      animation-iteration-count: infinite;
+      @keyframes sideline {
+        0% {
+          left: 0;
+        }
+        50% {
+          left: calc(100% - 32px);
+        }
+        100% {
+          left: 0;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48">
+  <g id="left-chevron" data-name="left-chevron" transform="translate(-486 -820)">
+    <g class="left-chevron__item" transform="translate(486 820)" fill="none" stroke="#0583f2" stroke-width="1">
+      <rect width="48" height="48" rx="24" stroke="none"/>
+      <rect x="0.5" y="0.5" width="47" height="47" rx="23.5" fill="none"/>
+    </g>
+    <g class="left-chevron__item" ransform="translate(1.5 -0.5)">
+      <line id="line_3" x1="5" y2="5" transform="translate(506.5 839.5)" fill="none" stroke="#0583f2" stroke-width="1"/>
+      <line id="line_4" x1="5" y1="5" transform="translate(506.5 844.5)" fill="none" stroke="#0583f2" stroke-width="1"/>
+    </g>
+  </g>
+</svg>

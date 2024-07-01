@@ -1,0 +1,38 @@
+$text-color: #ffffff;
+$bg-color: #021322;
+$main-color: #212226;
+$ac-color: #0583F2;
+$light-color: #93CCFF;
+@mixin font-main {
+  font-family: 'Noto Sans JP', sans-serif;
+  font-weight: 400;
+}
+@mixin font-head {
+  font-family: 'Alegreya', serif;
+  font-weight: bold;
+}
+@mixin font-sub {
+  font-family: 'Roboto Slab', serif;
+}
+@mixin neon1 {
+  @media screen and (min-width: 769px) {
+    &:hover {
+      color: $light-color;
+      text-shadow: 0 0 1em #3C9DF2, 0 0 1.25em $ac-color, 0 0 1.5em $ac-color, 0 0 1.75em $ac-color;
+      border: 1px solid $light-color;
+      box-shadow: 0 0 0.5em #3C9DF2 inset, 0 0 0.25em #3C9DF2, 0 0 0.5em $ac-color, 0 0 1em $ac-color;
+    }
+  }
+}
+@mixin neon-content {
+  color: $light-color;
+  text-shadow: 0 0 1em #3C9DF2, 0 0 1.25em $ac-color, 0 0 1.5em $ac-color, 0 0 1.75em $ac-color;
+  border: 1px solid $light-color;
+  box-shadow: 0 0 0.5em #3C9DF2 inset, 0 0 0.25em #3C9DF2, 0 0 0.5em $ac-color, 0 0 1em $ac-color;
+}
+@mixin neon-content2 {
+  color: $light-color;
+  text-shadow: 0 0 1em #3C9DF2, 0 0 1.25em $ac-color, 0 0 1.5em $ac-color, 0 0 1.75em $ac-color;
+  border-bottom: 1px solid $light-color;
+  box-shadow: 0 0 0.5em #3C9DF2 inset, 0 0 0.25em #3C9DF2, 0 0 0.5em $ac-color, 0 0 1em $ac-color;
+}

@@ -1,0 +1,789 @@
+@import "_var.scss";
+@import "_common.scss";
+
+.body {
+  background-color: #fff;
+  &-inner {
+    overflow-x: hidden;
+    margin: 16px;
+    background-color: $main-color;
+    @media screen and (max-width: 480px) {
+      margin: 8px;
+    }
+  }
+  &.is_not_scroll {
+    overflow: hidden;
+  }
+}
+
+/* ---------------------------
+  utility
+----------------------------- */
+.wrapper {
+  margin: 0 auto;
+  max-width: 1024px;
+  padding: 0 32px;
+  @media screen and (max-width: 480px) {
+    padding: 0 16px;
+  }
+}
+
+/* ---------------------------
+  header
+----------------------------- */
+.header {
+  &-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 80px;
+    @media screen and (max-width: 480px) {
+      height: 64px;
+    }
+  }
+  &__logo {
+    width: 65px;
+    height: 32px;
+    @media screen and (max-width: 480px) {
+      width: 48px;
+      height: 24px;
+    }
+  }
+  &__nav {
+    @media screen and (max-width: 768px) {
+      width: 100%;
+      height: 100vh;
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: -1;
+      opacity: 0;
+      transition: opacity .3s ease-in-out;
+      .g-nav {
+        height: 100%;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-around;
+        padding: 20vh 0;
+      }
+      &.is_active {
+        z-index: 9999;
+        background-color: $bg-color;
+        opacity: 1;
+      }
+    }
+  }
+}
+.g-nav {
+  display: flex;
+  align-items: center;
+  &-item {
+    padding: 0 16px;
+    &__link {
+      display: block;
+      padding: 4px 8px;
+      font-size: 1.6rem;
+      color: $text-color;
+      @include font-sub;
+      transition: color .3s ease-in-out;
+      @media screen and (min-width: 769px) {
+        &:hover {
+          color: $ac-color;
+        }
+      }
+      &--notice {
+        padding: 6px 12px;
+        color: $ac-color;
+        border: 1px solid $ac-color;
+        transition: all .3s ease-in-out;
+        @include neon1;
+        @media screen and (max-width: 480px) {
+          @include neon-content;
+        }
+      }
+    }
+  }
+}
+.nav-trigger {
+  position: relative;
+  z-index: 10000;
+  display: none;
+  width: 32px;
+  padding: 16px 0;
+  background-color: transparent;
+  cursor: pointer;
+  @media screen and (max-width: 768px) {
+    display: block;
+  }
+  &-inner {
+    position: relative;
+    height: 8px;
+    span {
+      position: absolute;
+      right: 0;
+      width: 100%;
+      height: 0px;
+      border-bottom: 1px solid #fff;
+      transition: all .3s ease-in-out;
+      @media screen and (max-width: 480px) {
+        @include neon-content2;
+      }
+      &:first-of-type {
+        top: 0;
+      }
+      &:last-of-type {
+        width: 50%;
+        bottom: 0;
+      }
+    }
+  }
+  &.is_active {
+    .nav-trigger-inner {
+      span {
+        &:first-of-type {
+          transform: rotate(-13deg);
+          transform-origin: right top;
+        }
+        &:last-of-type {
+          width: 100%;
+          transform: rotate(13deg);
+          transform-origin: right bottom;
+        }
+      }
+    }
+  }
+}
+
+/* ---------------------------
+  hero
+----------------------------- */
+.hero {
+  width: 100%;
+  height: 600px;
+  padding-bottom: 40px;
+  margin-bottom: 24px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  @media screen and (max-width: 480px) {
+    height: 400px;
+    padding-bottom: 16px;
+    margin-bottom: 32px;
+  }
+  &::after {
+    content: "";
+    width: 100%;
+    height: 600px;
+    display: block;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-image: url(../img/hero/world.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 80%;
+    opacity: 0.2;
+    // animation-name: changeimg;
+    // animation-duration: 12s;
+    // animation-timing-function: linear;
+    // animation-iteration-count: infinite;
+    // @keyframes changeimg {
+    //   0% {
+    //     background-image: url(../img/hero/world.png);
+    //   }
+    //   40% {
+    //     background-image: url(../img/hero/world-blue.png);
+    //   }
+    //   80% {
+    //     background-image: url(../img/hero/world.png);
+    //   }
+    //   100% {
+    //     background-image: url(../img/hero/world.png);
+    //   }
+    // }
+    @media screen and (min-width: 1300px) {
+      background-size: 1000px;
+    }
+    @media screen and (max-width: 768px) {
+      background-size: 800px;
+    }
+    @media screen and (max-width: 480px) {
+      background-size: 500px;
+      height: 400px;
+    }
+  }
+  &-inner {
+    text-align: center;
+  }
+  &__main {
+    width: 240px;
+    height: 118px;
+    @media screen and (max-width: 480px) {
+      width: 140px;
+      height: 69px;
+    }
+  }
+  &__sub {
+    margin-top: 16px;
+    @include font-sub;
+    font-size: 2rem;
+    @media screen and (max-width: 480px) {
+      font-size: 1.4rem;
+    }
+  }
+  &__typo {
+    position: absolute;
+    z-index: 10;
+    @media screen and (max-width: 768px) {
+      width: 120px;
+    }
+    @media screen and (max-width: 480px) {
+      width: 96px;
+    }
+    &--en {
+      bottom: 16px;
+      left: 40px;
+      @media screen and (min-width: 1300px) {
+        left: 10%;
+      }
+      @media screen and (max-width: 480px) {
+        left: 16px;
+      }
+    }
+    &--ja {
+      top: 16px;
+      right: 40px;
+      @media screen and (min-width: 1300px) {
+        right: 10%;
+      }
+      @media screen and (max-width: 480px) {
+        right: 16px;
+      }
+    }
+  }
+  &-vertical {
+    height: 48px;
+    width: 1px;
+    padding: 8px;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    overflow-y: hidden;
+    &::after {
+      position: absolute;
+      top: 0;
+      left: 8px;
+      display: block;
+      content: "";
+      width: 1px;
+      height: 16px;
+      background-color: #3C9DF2;
+      box-shadow: 0 0 0.25em #3C9DF2, 0 0 0.5em #0583F2;
+      // animation-name: scroll;
+      // animation-timing-function: linear;
+      // animation-duration: 1s;
+      // animation-iteration-count: infinite;
+      // @keyframes scroll {
+      //   0% {
+      //     top: -20px;
+      //   }
+      //   100% {
+      //     top: 100%;
+      //   }
+      // }
+    }
+  }
+  &-sns {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    &-outer {
+      width: 100%;
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      z-index: 2000;
+    }
+    &__item {
+      display: block;
+      padding: 12px;
+      cursor: pointer;
+      path {
+        transition: fill .3s ease-in-out;
+      }
+      @media screen and (min-width: 769px) {
+        &:hover {
+          path {
+            fill: $ac-color;
+          }
+        }
+      }
+    }
+  }
+}
+
+/* ---------------------------
+  section
+----------------------------- */
+.section {
+  padding: 64px 0;
+  @media screen and (max-width: 480px) {
+    padding: 48px 0;
+  }
+  &-title {
+    position: relative;
+    z-index: 1;
+    display: inline-block;
+    font-size: 6.4rem;
+    @include font-head;
+    padding: 0 16px;
+    line-height: 1;
+    @media screen and (max-width: 480px) {
+      font-size: 4rem;
+      padding: 0 8px;
+    }
+    &::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: 6px;
+      z-index: -1;
+      width: 100%;
+      height: 24px;
+      display: block;
+      background-image: radial-gradient($ac-color 23%, transparent 26%),radial-gradient($ac-color 23%, transparent 26%);
+      background-position: 0 0, 2px 2px;
+      background-size: 4px 4px;
+      @media screen and (max-width: 480px) {
+        height: 16px;
+      }
+    }
+  }
+  &-subtitle {
+    font-size: 1.6rem;
+    margin-top: 24px;
+    line-height: 1.8;
+    @media screen and (max-width: 480px) {
+      font-size: 1.4rem;
+      margin-top: 16px;
+    }
+  }
+  &-bg {
+    &--fill {
+      background-color: $bg-color;
+    }
+    &--bottom {
+      background-image: url(../img/bg/bg-bottom.png);
+      background-repeat: repeat-x;
+      background-size: 10px;
+      background-position: bottom;
+    }
+    &--top {
+      background-image: url(../img/bg/bg-top.png);
+      background-repeat: repeat-x;
+      background-size: 10px;
+      background-position: top;
+    }
+  }
+}
+
+/* ---------------------------
+  service
+----------------------------- */
+.list01 {
+  display: flex;
+  justify-content: space-around;
+  position: relative;
+  margin-top: 48px;
+  @media screen and (max-width: 768px) {
+    flex-direction: column;
+  }
+  @media screen and (max-width: 480px) {
+    margin-top: 32px;
+  }
+  &-item {
+    position: relative;
+    z-index: 10;
+    max-width: 200px;
+    text-align: center;
+    @media screen and (max-width: 768px) {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      max-width: 100%;
+      margin-bottom: 16px;
+      .flex {
+        padding-left: 32px;
+        width: 180px;
+        text-align: left;
+      }
+    }
+    &__head {
+      color: $ac-color;
+      font-size: 1.8rem;
+      margin-top: 24px;
+      @media screen and (max-width: 768px) {
+        font-size: 1.6rem;
+        margin-top: 0;
+        text-align: left;
+      }
+    }
+    &__img {
+      @media screen and (max-width: 768px) {
+        max-width: 160px;
+      }
+      @media screen and (max-width: 480px) {
+        max-width: 120px;
+      }
+    }
+  }
+  &-child {
+    margin-top: 16px;
+    display: inline-block;
+    @media screen and (max-width: 480px) {
+      margin-top: 8px;
+    }
+    &__item {
+      font-size: 1.4rem;
+      text-align: left;
+      line-height: 1.8;
+      @media screen and (max-width: 768px) {
+        font-size: 1.1rem;
+      }
+    }
+  }
+  &-hol {
+    position: absolute;
+    top: 100px;
+    z-index: 1;
+    width: 100%;
+    height: 1px;
+    background-color: $text-color;
+    @media screen and (max-width: 768px) {
+      display: none;
+    }
+    &::after {
+      position: absolute;
+      top: 0;
+      left: 0;
+      display: block;
+      content: "";
+      width: 32px;
+      height: 1px;
+      background-color: #3C9DF2;
+      box-shadow: 0 0 0.25em #3C9DF2, 0 0 0.5em $ac-color;
+      // animation-name: sideline;
+      // animation-timing-function: linear;
+      // animation-duration: 4s;
+      // animation-iteration-count: infinite;
+      // @keyframes sideline {
+      //   0% {
+      //     left: 0;
+      //   }
+      //   50% {
+      //     left: calc(100% - 32px);
+      //   }
+      //   100% {
+      //     left: 0;
+      //   }
+      // }
+    }
+  }
+}
+
+/* ---------------------------
+  member
+----------------------------- */
+.swiper {
+  &-container {
+    margin-top: -64px;
+    padding-top: 116px;
+    padding-bottom: 40px;
+    position: relative;
+    @media screen and (max-width: 768px) {
+      margin-top: 40px;
+      padding-top: 0;
+      padding-bottom: 64px;
+    }
+    @media screen and (max-width: 480px) {
+      padding-bottom: 80px;
+    }
+  }
+  &-slide {
+    max-width: 300px;
+    text-align: center;
+    background-color: $bg-color;
+    padding-bottom: 16px;
+    @media screen and (max-width: 480px) {
+      max-width: 200px;
+    }
+    &__text {
+      text-align: left;
+      display: inline-block;
+      @include font-sub;
+    }
+    &__title {
+      font-size: 1.8rem;
+      margin-top: 4px;
+      @media screen and (max-width: 480px) {
+        font-size: 1.6rem;
+      }
+    }
+    &__subtitle {
+      font-size: 1.2rem;
+      color: $ac-color;
+    }
+  }
+
+  &-pagination {
+    @media screen and (max-width: 768px) {
+      bottom: 16px!important;
+    }
+    @media screen and (max-width: 480px) {
+      bottom: 32px!important;
+    }
+    &-bullet {
+      width: 4px;
+      height: 4px;
+      background-color: $ac-color;
+      &-active {
+        background-color: $light-color;
+        box-shadow: 0 0 0.5em #3C9DF2 inset, 0 0 0.25em #3C9DF2, 0 0 0.5em $ac-color, 0 0 1em $ac-color;
+      }
+    }
+  }
+
+  &-button {
+    position: absolute;
+    top: 12px;
+    right: 8%;
+    display: flex;
+    @media screen and (max-width: 768px) {
+      top: auto;
+      bottom: 0;
+      right: 0;
+      width: 100%;
+      justify-content: space-between;
+      align-items: center;
+    }
+    @media screen and (max-width: 480px) {
+      bottom: 16px;
+    }
+    &__item {
+      position: static;
+      width: 48px;
+      height: 48px;
+      border: 1px solid $ac-color;
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      transition: all .3s ease-in-out;
+      margin: 0 12px;
+      @media screen and (max-width: 768px) {
+        margin: 0 24px;
+      }
+      @include neon1;
+      @media screen and (max-width: 480px) {
+        @include neon-content;
+      }
+      &::after {
+        content: none;
+      }
+      line {
+        transition: all .3s ease-in-out;
+        @media screen and (max-width: 480px) {
+          stroke: $light-color;
+          filter: drop-shadow(0 0 2px #3C9DF2);
+        }
+      }
+      @media screen and (min-width: 769px) {
+        &:hover {
+          line {
+            stroke: $light-color;
+            filter: drop-shadow(0 0 2px #3C9DF2);
+          }
+        }
+      }
+    }
+  }
+
+}
+
+.list03 {
+  display: flex;
+  justify-content: flex-start;
+  transform: translateY(-50%);
+  padding-left: 16px;
+  &__item {
+    margin-right: 8px;
+    img {
+      width: 20px;
+      height: 20px;
+    }
+  }
+}
+
+
+/* ---------------------------
+  works
+----------------------------- */
+.works {
+  @media screen and (max-width: 480px) {
+    padding-bottom: 0;
+  }
+}
+.list02 {
+  margin-top: 40px;
+  display: flex;
+  flex-wrap: wrap;
+  margin-left: -32px;
+  &-item {
+    padding-left: 32px;
+    margin-bottom: 32px;
+    width: 33.333%;
+    @media screen and (max-width: 768px) {
+      width: 50%;
+    }
+    @media screen and (max-width: 480px) {
+      width: 100%;
+      &:last-of-type {
+        margin-bottom: 0;
+      }
+    }
+    &-inner {
+      display: block;
+      padding-right: 24px;
+      padding-bottom: 16px;
+      position: relative;
+      background-color: $bg-color;
+      cursor: pointer;
+      @media screen and (min-width: 769px) {
+        &:hover {
+          .list02-item__thumb {
+            filter: grayscale(0%);
+          }
+        }
+      }
+    }
+    &__thumb {
+      @media screen and (min-width: 769px) {
+        filter: grayscale(100%);
+        transition: filter .3s ease-in-out;
+        &:hover {
+          filter: grayscale(0%);
+        }
+      }
+    }
+    &__cat {
+      position: absolute;
+      font-size: 1.2rem;
+      color: #C7C7C7;
+      @include font-sub;
+      top: 0;
+      right: 0;
+      writing-mode: vertical-rl;
+      line-height: 24px;
+      padding-top: 16px;
+      letter-spacing: 0.2em;
+    }
+    &__title {
+      padding-left: 16px;
+      margin-top: 2px;
+      a {
+        display: block;
+        font-size: 1.4rem;
+        transition: .3s color ease-in-out;
+        @media screen and (min-width: 769px) {
+          &:hover {
+            color: $ac-color;
+          }
+        }
+      }
+    }
+    &__subtitle {
+      font-size: 1.2rem;
+      color: $ac-color;
+      padding-left: 16px;
+    }
+  }
+
+  &-child {
+    display: flex;
+    padding-left: 16px;
+    transform: translateY(-50%);
+    img {
+      width: 20px;
+      height: 20px;
+      margin-right: 8px;
+    }
+  }
+}
+
+/* ---------------------------
+  contact
+----------------------------- */
+.aside {
+  overflow: hidden;
+  height: 500px;
+  width: 100%;
+  position: relative;
+  &-inner {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+  }
+  &-canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+}
+.lead {
+  position: relative;
+  z-index: 10;
+  text-align: center;
+  &__text {
+    font-size: 1.6rem;
+    line-height: 1.8;
+    margin-bottom: 24px;
+  }
+  &__link {
+    display: block;
+    background-color: $main-color;
+    font-size: 2rem;
+    @include font-sub;
+    padding: 8px 32px;
+    color: $ac-color;
+    border: 1px solid $ac-color;
+    transition: all .3s ease-in-out;
+    @include neon1;
+    @media screen and (max-width: 480px) {
+      @include neon-content;
+    }
+  }
+}
+
+/* ---------------------------
+  footer
+----------------------------- */
+.footer {
+  background-color: $bg-color;
+  &__copy {
+    font-size: 1rem;
+    @include font-sub;
+    padding: 16px 0;
+    text-align: center;
+  }
+}
+@media screen and (max-width: 768px) {
+}
+
+@media screen and (max-width: 480px) {
+}

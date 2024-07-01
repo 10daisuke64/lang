@@ -1,0 +1,42 @@
+html { font-size: 62.5%;}
+body {
+  color: $text-color;
+  font-size: 1.6rem;
+  line-height: 1.5;
+  @include font-main;
+  font-feature-settings: "palt";
+  letter-spacing: 0.025em;
+}
+a {
+  color: $text-color;
+}
+img {
+  max-width: 100%;
+  height: auto;
+}
+input, button, textarea {
+  appearance: none;
+  -webkit-appearance: none;
+  border: none;
+  border-radius: 0;
+  margin: 0;
+  padding: 0;
+  outline: none;
+}
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+.pc {
+  display: block;
+}
+.sp {
+  display: none;
+}
+@media screen and (max-width: 480px) {
+  .pc {
+    display: none;
+  }
+  .sp {
+    display: block;
+  }
+}
